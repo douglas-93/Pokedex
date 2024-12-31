@@ -33,6 +33,8 @@
                       <Component id="txtPokemon" min="-2" pref="160" max="-2" attributes="0"/>
                       <EmptySpace type="unrelated" max="-2" attributes="0"/>
                       <Component id="btnBuscar" min="-2" max="-2" attributes="0"/>
+                      <EmptySpace type="unrelated" max="-2" attributes="0"/>
+                      <Component id="btnCard" min="-2" max="-2" attributes="0"/>
                       <EmptySpace min="0" pref="0" max="32767" attributes="0"/>
                   </Group>
                   <Component id="jProgressBar" alignment="1" max="32767" attributes="0"/>
@@ -49,6 +51,7 @@
                   <Component id="btnBuscar" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="jLabel1" alignment="3" min="-2" max="-2" attributes="0"/>
                   <Component id="txtPokemon" alignment="3" min="-2" max="-2" attributes="0"/>
+                  <Component id="btnCard" alignment="3" min="-2" max="-2" attributes="0"/>
               </Group>
               <EmptySpace max="-2" attributes="0"/>
               <Component id="jScrollPane1" min="-2" pref="497" max="-2" attributes="0"/>
@@ -101,5 +104,13 @@
         </Component>
       </SubComponents>
     </Container>
+    <Component class="javax.swing.JButton" name="btnCard">
+      <Properties>
+        <Property name="text" type="java.lang.String" value="Exibir Card"/>
+      </Properties>
+      <Events>
+        <EventHandler event="mouseClicked" listener="java.awt.event.MouseListener" parameters="java.awt.event.MouseEvent" handler="btnCardMouseClicked"/>
+      </Events>
+    </Component>
   </SubComponents>
 </Form>

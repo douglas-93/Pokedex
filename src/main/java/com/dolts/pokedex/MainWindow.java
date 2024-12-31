@@ -4,10 +4,13 @@
  */
 package com.dolts.pokedex;
 
+import com.dolts.pokedex.HelperForms.CardWindow;
 import com.dolts.pokedex.Helpers.ImageRenderer;
+import com.dolts.pokedex.Helpers.RequestHelper;
 import com.dolts.pokedex.models.Pokemon;
 import com.fasterxml.jackson.databind.JsonNode;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import javax.swing.JOptionPane;
 import javax.swing.table.DefaultTableModel;
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.CloseableHttpResponse;
@@ -45,6 +48,7 @@ public class MainWindow extends javax.swing.JFrame {
         jProgressBar = new javax.swing.JProgressBar();
         jScrollPane1 = new javax.swing.JScrollPane();
         jTable = new javax.swing.JTable();
+        btnCard = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -72,6 +76,13 @@ public class MainWindow extends javax.swing.JFrame {
         ));
         jScrollPane1.setViewportView(jTable);
 
+        btnCard.setText("Exibir Card");
+        btnCard.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                btnCardMouseClicked(evt);
+            }
+        });
+
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -86,6 +97,8 @@ public class MainWindow extends javax.swing.JFrame {
                         .addComponent(txtPokemon, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                         .addComponent(btnBuscar)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(btnCard)
                         .addGap(0, 0, Short.MAX_VALUE))
                     .addComponent(jProgressBar, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
@@ -97,7 +110,8 @@ public class MainWindow extends javax.swing.JFrame {
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(btnBuscar)
                     .addComponent(jLabel1)
-                    .addComponent(txtPokemon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtPokemon, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnCard))
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 497, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
@@ -107,7 +121,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
-    
+
     private void configurarTabela() {
         // Define os cabeçalhos das colunas
         String[] colunas = {"ID", "Nome", "Habilidade 1", "Habilidade 2", "Altura", "HP", "Ataque", "Defesa", "Ataque Especial", "Defesa Especial", "Velocidade", "Peso", "Tipo 1", "Tipo 2", "Imagem URL"};
@@ -117,7 +131,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         // Define o modelo na tabela
         jTable.setModel(model);
-        
+
         // Define o renderizador para a coluna da imagem (a última coluna)
         jTable.getColumnModel().getColumn(colunas.length - 1).setCellRenderer(new ImageRenderer());
 
@@ -133,7 +147,7 @@ public class MainWindow extends javax.swing.JFrame {
 
         model.addRow(p.toArray());
     }
-    
+
     private void addPokemonToTable(Pokemon[] pokemons) {
         DefaultTableModel model = (DefaultTableModel) jTable.getModel();
 //        model.setRowCount(0);
@@ -142,28 +156,20 @@ public class MainWindow extends javax.swing.JFrame {
             model.addRow(pokemon.toArray());
         }
     }
-    
+
     private void btnBuscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnBuscarMouseClicked
         try {
             String url = "https://pokeapi.co/api/v2/pokemon/?limit=10";
             jProgressBar.setIndeterminate(true);
             jProgressBar.setVisible(true);
 
-            CloseableHttpClient httpClient = HttpClients.createDefault();
-            HttpGet request = new HttpGet("https://pokeapi.co/api/v2/pokemon/" + txtPokemon.getText());
-            CloseableHttpResponse response = httpClient.execute(request);
-            HttpEntity entity = response.getEntity();
-            String json = EntityUtils.toString(entity);
-
-            ObjectMapper objectMapper = new ObjectMapper();
-            JsonNode rootNode = objectMapper.readTree(json);
+            JsonNode rootNode = RequestHelper.sendRequest(txtPokemon.getText());
 
             Pokemon pokemon = new Pokemon();
             pokemon.parseAttributes(rootNode);
             addPokemonToTable(pokemon);
-            
 
-            httpClient.close();
+            
             jProgressBar.setIndeterminate(false);
             jProgressBar.setValue(0);
         } catch (Exception e) {
@@ -172,6 +178,22 @@ public class MainWindow extends javax.swing.JFrame {
             jProgressBar.setValue(0);
         }
     }//GEN-LAST:event_btnBuscarMouseClicked
+
+    private void btnCardMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_btnCardMouseClicked
+        int selectedRow = jTable.getSelectedRow();
+
+        if (selectedRow >= 0) {
+            DefaultTableModel model = (DefaultTableModel) jTable.getModel();
+
+                int id = (int) model.getValueAt(selectedRow, 0);
+
+                CardWindow cw = new CardWindow(id);
+            cw.show();
+        } else {
+            // Show an error message if no row is selected
+            JOptionPane.showMessageDialog(this, "Please select a Pokemon from the table.");
+        }
+    }//GEN-LAST:event_btnCardMouseClicked
 
     /**
      * @param args the command line arguments
@@ -210,6 +232,7 @@ public class MainWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnBuscar;
+    private javax.swing.JButton btnCard;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JProgressBar jProgressBar;
     private javax.swing.JScrollPane jScrollPane1;
