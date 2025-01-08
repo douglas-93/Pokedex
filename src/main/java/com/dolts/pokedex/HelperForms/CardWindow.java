@@ -56,7 +56,29 @@ public class CardWindow extends javax.swing.JFrame {
         jSeparator1 = new javax.swing.JSeparator();
         lblNome = new javax.swing.JLabel();
         jLabel1 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel4 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel7 = new javax.swing.JLabel();
+        jLabel8 = new javax.swing.JLabel();
+        jLabel9 = new javax.swing.JLabel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        lblHp = new javax.swing.JLabel();
+        lblHabilidadePrimaria = new javax.swing.JLabel();
+        lblAltura = new javax.swing.JLabel();
+        lblAtaque = new javax.swing.JLabel();
+        lblAtaqueEspecial = new javax.swing.JLabel();
+        lblTipoPrimario = new javax.swing.JLabel();
+        lblTipoSecundario = new javax.swing.JLabel();
+        lblHabilidadeSecundaria = new javax.swing.JLabel();
+        lblVelocidade = new javax.swing.JLabel();
+        lblDefesa = new javax.swing.JLabel();
+        lblDefesaEspecial = new javax.swing.JLabel();
+        lblPeso = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -68,44 +90,144 @@ public class CardWindow extends javax.swing.JFrame {
         lblNome.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         lblNome.setText("Nome");
 
-        jLabel1.setText("jLabel1");
+        jLabel1.setText("HP ..............................");
 
-        jTextField1.setText("jTextField1");
+        jLabel2.setText("Ataque .......................");
+
+        jLabel3.setText("Ataque Especial ........");
+
+        jLabel4.setText("Altura .........................");
+
+        jLabel5.setText("Peso ................................");
+
+        jLabel6.setText("Velocidade .....................");
+
+        jLabel7.setText("Defesa .............................");
+
+        jLabel8.setText("Defesa Especial ..............");
+
+        jLabel9.setText("Tipo Primário ............");
+
+        jLabel10.setText("Tipo Secundário ............");
+
+        jLabel11.setText("Habilitade Primária ..");
+
+        jLabel12.setText("Habilidade Secundária ..");
+
+        lblHp.setText("0");
+
+        lblHabilidadePrimaria.setText("0");
+
+        lblAltura.setText("0");
+
+        lblAtaque.setText("0");
+
+        lblAtaqueEspecial.setText("0");
+
+        lblTipoPrimario.setText("0");
+
+        lblTipoSecundario.setText("0");
+
+        lblHabilidadeSecundaria.setText("0");
+
+        lblVelocidade.setText("0");
+
+        lblDefesa.setText("0");
+
+        lblDefesaEspecial.setText("0");
+
+        lblPeso.setText("0");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(jSeparator1, javax.swing.GroupLayout.Alignment.TRAILING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(lblNome, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addGroup(layout.createSequentialGroup()
-                        .addGap(0, 104, Short.MAX_VALUE)
-                        .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 104, Short.MAX_VALUE))
-                    .addGroup(layout.createSequentialGroup()
-                        .addComponent(jLabel1)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                        .addGap(0, 0, Short.MAX_VALUE)))
-                .addContainerGap())
+                    .addComponent(jLabel1)
+                    .addComponent(jLabel2)
+                    .addComponent(jLabel3)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel9)
+                    .addComponent(jLabel11))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblAtaqueEspecial)
+                    .addComponent(lblTipoPrimario)
+                    .addComponent(lblHp)
+                    .addComponent(lblHabilidadePrimaria)
+                    .addComponent(lblAltura)
+                    .addComponent(lblAtaque))
+                .addGap(80, 80, 80)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel10)
+                    .addComponent(jLabel12)
+                    .addComponent(jLabel5)
+                    .addComponent(jLabel6)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel8))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(lblDefesaEspecial)
+                    .addComponent(lblHabilidadeSecundaria)
+                    .addComponent(lblTipoSecundario)
+                    .addComponent(lblVelocidade)
+                    .addComponent(lblDefesa)
+                    .addComponent(lblPeso)))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(6, 6, 6)
+                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(layout.createSequentialGroup()
+                .addGap(110, 110, 110)
+                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
+                .addGap(6, 6, 6)
                 .addComponent(lblNome)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(12, 12, 12)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                .addGap(15, 15, 15)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblVelocidade)
+                    .addComponent(jLabel6)
                     .addComponent(jLabel1)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(228, Short.MAX_VALUE))
+                    .addComponent(lblHp))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblDefesa)
+                    .addComponent(jLabel7)
+                    .addComponent(jLabel2)
+                    .addComponent(lblAtaque))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblAtaqueEspecial)
+                    .addComponent(lblDefesaEspecial)
+                    .addComponent(jLabel8)
+                    .addComponent(jLabel3))
+                .addGap(6, 6, 6)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblPeso)
+                    .addComponent(jLabel4)
+                    .addComponent(jLabel5)
+                    .addComponent(lblAltura))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel10)
+                    .addComponent(lblTipoPrimario)
+                    .addComponent(lblTipoSecundario)
+                    .addComponent(jLabel9))
+                .addGap(12, 12, 12)
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(jLabel11)
+                    .addComponent(lblHabilidadeSecundaria)
+                    .addComponent(jLabel12)
+                    .addComponent(lblHabilidadePrimaria)))
         );
 
         pack();
@@ -148,15 +270,49 @@ public class CardWindow extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel8;
+    private javax.swing.JLabel jLabel9;
     private javax.swing.JSeparator jSeparator1;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel lblAltura;
+    private javax.swing.JLabel lblAtaque;
+    private javax.swing.JLabel lblAtaqueEspecial;
+    private javax.swing.JLabel lblDefesa;
+    private javax.swing.JLabel lblDefesaEspecial;
+    private javax.swing.JLabel lblHabilidadePrimaria;
+    private javax.swing.JLabel lblHabilidadeSecundaria;
+    private javax.swing.JLabel lblHp;
     private javax.swing.JLabel lblImage;
     private javax.swing.JLabel lblNome;
+    private javax.swing.JLabel lblPeso;
+    private javax.swing.JLabel lblTipoPrimario;
+    private javax.swing.JLabel lblTipoSecundario;
+    private javax.swing.JLabel lblVelocidade;
     // End of variables declaration//GEN-END:variables
 
     private void setCardValues(Pokemon p) {
         renderImage(p.getImagemURL());
         lblNome.setText(p.getNome());
+        lblHp.setText(String.valueOf(p.getHp()));
+        lblAtaque.setText(String.valueOf(p.getAtaque()));
+        lblVelocidade.setText(String.valueOf(p.getVelocidade()));
+        lblDefesa.setText(String.valueOf(p.getDefesa()));
+        lblAtaqueEspecial.setText(String.valueOf(p.getAtaqueEspecial()));
+        lblDefesaEspecial.setText(String.valueOf(p.getDefesaEspecial()));
+        lblAltura.setText(String.valueOf(p.getAltura()));
+        lblPeso.setText(String.valueOf(p.getPeso()));
+        lblTipoPrimario.setText(String.valueOf(p.getTipo1()));
+        lblTipoSecundario.setText(String.valueOf(p.getTipo2()));
+        lblHabilidadePrimaria.setText(String.valueOf(p.getHabilidade1()));
+        lblHabilidadeSecundaria.setText(String.valueOf(p.getHabilidade2()));
     }
 
     private void renderImage(String imageUrl) {
