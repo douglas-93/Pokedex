@@ -1,0 +1,9 @@
+com\dolts\pokedex\MainWindow.class
+com\dolts\pokedex\HelperForms\CardWindow.class
+com\dolts\pokedex\models\Pokemon.class
+com\dolts\pokedex\MainWindow$2.class
+com\dolts\pokedex\Helpers\ImageRenderer.class
+com\dolts\pokedex\MainWindow$1.class
+com\dolts\pokedex\HelperForms\CardWindow$1.class
+com\dolts\pokedex\Helpers\RequestHelper.class
+com\dolts\pokedex\MainWindow$3.class

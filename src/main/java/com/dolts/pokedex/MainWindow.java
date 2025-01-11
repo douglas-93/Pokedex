@@ -163,7 +163,7 @@ public class MainWindow extends javax.swing.JFrame {
             jProgressBar.setIndeterminate(true);
             jProgressBar.setVisible(true);
 
-            JsonNode rootNode = RequestHelper.sendRequest(txtPokemon.getText());
+            JsonNode rootNode = RequestHelper.sendRequest(txtPokemon.getText().toLowerCase());
 
             Pokemon pokemon = new Pokemon();
             pokemon.parseAttributes(rootNode);
@@ -173,6 +173,7 @@ public class MainWindow extends javax.swing.JFrame {
             jProgressBar.setIndeterminate(false);
             jProgressBar.setValue(0);
         } catch (Exception e) {
+            JOptionPane.showInternalMessageDialog(null, "Não foi possível localizar o pokemon informado!\n\nErro:\n" + e.getMessage());
             System.out.println(e.getMessage());
             jProgressBar.setIndeterminate(false);
             jProgressBar.setValue(0);

@@ -143,6 +143,11 @@ public class CardWindow extends javax.swing.JFrame {
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
+                    .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 160, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE)))
+            .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jLabel1)
@@ -175,12 +180,6 @@ public class CardWindow extends javax.swing.JFrame {
                     .addComponent(lblVelocidade)
                     .addComponent(lblDefesa)
                     .addComponent(lblPeso)))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(6, 6, 6)
-                .addComponent(lblNome, javax.swing.GroupLayout.PREFERRED_SIZE, 458, javax.swing.GroupLayout.PREFERRED_SIZE))
-            .addGroup(layout.createSequentialGroup()
-                .addGap(110, 110, 110)
-                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 250, javax.swing.GroupLayout.PREFERRED_SIZE))
             .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 470, javax.swing.GroupLayout.PREFERRED_SIZE)
         );
         layout.setVerticalGroup(
@@ -188,11 +187,11 @@ public class CardWindow extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addGap(6, 6, 6)
                 .addComponent(lblNome)
-                .addGap(12, 12, 12)
-                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(12, 12, 12)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(lblImage, javax.swing.GroupLayout.PREFERRED_SIZE, 110, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jSeparator1, javax.swing.GroupLayout.PREFERRED_SIZE, 10, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(15, 15, 15)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.CENTER)
                     .addComponent(lblVelocidade)
                     .addComponent(jLabel6)
@@ -227,7 +226,8 @@ public class CardWindow extends javax.swing.JFrame {
                     .addComponent(jLabel11)
                     .addComponent(lblHabilidadeSecundaria)
                     .addComponent(jLabel12)
-                    .addComponent(lblHabilidadePrimaria)))
+                    .addComponent(lblHabilidadePrimaria))
+                .addContainerGap(16, Short.MAX_VALUE))
         );
 
         pack();
@@ -299,8 +299,11 @@ public class CardWindow extends javax.swing.JFrame {
     // End of variables declaration//GEN-END:variables
 
     private void setCardValues(Pokemon p) {
+        String nome = p.getNome();
+        String nomeFinal = String.valueOf(nome.charAt(0)).toUpperCase() + nome.substring(1);
+        
         renderImage(p.getImagemURL());
-        lblNome.setText(p.getNome());
+        lblNome.setText(nomeFinal);
         lblHp.setText(String.valueOf(p.getHp()));
         lblAtaque.setText(String.valueOf(p.getAtaque()));
         lblVelocidade.setText(String.valueOf(p.getVelocidade()));
